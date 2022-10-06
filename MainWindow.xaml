@@ -1,0 +1,167 @@
+﻿<Window
+    x:Class="PTFinalProject.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:PTFinalProject"
+    mc:Ignorable="d"
+    WindowStartupLocation="CenterScreen"
+    Title="Reproductor de Música"
+    MinHeight="700"
+    Height="700"
+    MaxHeight="700"
+    MinWidth="1000"
+    Width="1000"
+    MaxWidth="1000"
+>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Content -->
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" /> <!-- Music Player row definition -->
+                <RowDefinition Height="*" /> <!-- Current queue row definition -->
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Music Player -->
+            <Border
+                Background="LightGray"
+                BorderBrush="LightGray"
+                CornerRadius="12"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="16,16,0,0"
+            >
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Current song information -->
+                    <StackPanel HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Margin="16,16,16,0">
+                        <Label x:Name="labelSongName">Selecciona una canción</Label>
+                        <Label x:Name="labelSongArtists"></Label>
+                    </StackPanel>
+
+                    <!-- Music Player controls -->
+                    <Grid HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="0,0,0,16">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button
+                            x:Name="btnPreviousSong"
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            Background="LightSeaGreen"
+                            BorderBrush="LightSeaGreen"
+                            Click="ButtonPreviousSong_Click"
+                            Cursor="Hand"
+                            Height="35"
+                            Width="35"
+                        >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="22.5"/>
+                                </Style>
+                            </Button.Resources>
+                            <Button.Content>
+                                <Viewbox Width="20" Height="20" Margin="-7,-6,0,0">
+                                    <Path Data="{StaticResource Previous}" Fill="White" />
+                                </Viewbox>
+                            </Button.Content>
+                        </Button>
+                        <Button
+                            x:Name="btnPlayOrStopSong"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Background="LightSeaGreen"
+                            BorderBrush="LightSeaGreen"
+                            Click="ButtonPlayOrStopSong_Click"
+                            Cursor="Hand"
+                            Height="35"
+                            Margin="16,0,16,0"
+                            Width="35"
+                        >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="22.5"/>
+                                </Style>
+                            </Button.Resources>
+                            <Button.Content>
+                                <Viewbox Width="20" Height="20" Margin="-4,-4,0,0">
+                                    <Path Data="{DynamicResource PlayingMusicPlayer}" Fill="White" />
+                                </Viewbox>
+                            </Button.Content>
+                        </Button>
+                        <Button
+                            x:Name="btnNextSong"
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Background="LightSeaGreen"
+                            BorderBrush="LightSeaGreen"
+                            Click="ButtonNextSong_Click"
+                            Cursor="Hand"
+                            Height="35"
+                            Width="35"
+                        >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="22.5"/>
+                                </Style>
+                            </Button.Resources>
+                            <Button.Content>
+                                <Viewbox Width="20" Height="20" Margin="-4,-6,0,0">
+                                    <Path Data="{StaticResource Next}" Fill="White" />
+                                </Viewbox>
+                            </Button.Content>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- Current queue -->
+            <StackPanel Grid.Row="1" Grid.Column="0" Margin="16,16,0,0">
+                <Label FontSize="16" FontWeight="Bold" Foreground="LightSeaGreen">
+                    Lista de reproducción actual
+                </Label>
+                <StackPanel x:Name="queueSongs" Margin="0,16,0,0"></StackPanel>
+            </StackPanel>
+        </Grid>
+        
+        <!-- Right Content -->
+        <StackPanel x:Name="availableSongs" Grid.Row="0" Grid.Column="1" Margin="16,16,16,0"></StackPanel>
+    </Grid>
+</Window>
