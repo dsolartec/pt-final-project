@@ -1,9 +1,4 @@
 ﻿using PTFinalProject.Core.Songs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PTFinalProject.Core.Queue
 {
@@ -26,10 +21,10 @@ namespace PTFinalProject.Core.Queue
 
         public QueueSong? GetPreviousSong() { return PreviousSong; }
 
-        public void SetPreviousSong(QueueSong previousSong) { PreviousSong = previousSong; }
+        public void SetPreviousSong(QueueSong? previousSong) { PreviousSong = previousSong; }
 
         public QueueSong? GetNextSong() { return NextSong; }
 
-        public void SetNextSong(QueueSong nextSong) { NextSong = nextSong; }
+        public void SetNextSong(QueueSong? nextSong) { NextSong = nextSong; }
     }
 }

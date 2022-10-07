@@ -30,7 +30,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="320" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="632" />
         </Grid.ColumnDefinitions>
 
         <!-- Left Content -->
@@ -64,9 +64,17 @@
                     </Grid.ColumnDefinitions>
 
                     <!-- Current song information -->
-                    <StackPanel HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Margin="16,16,16,0">
-                        <Label x:Name="labelSongName">Selecciona una canción</Label>
-                        <Label x:Name="labelSongArtists"></Label>
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="16,16,16,0"
+                        VerticalAlignment="Center"
+                    >
+                        <Label x:Name="labelSongName" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center">
+                            Selecciona una canción
+                        </Label>
+                        <Label x:Name="labelSongArtists" FontSize="12" HorizontalAlignment="Center" Margin="0,-12,0,0" />
                     </StackPanel>
 
                     <!-- Music Player controls -->
@@ -155,13 +163,35 @@
             <!-- Current queue -->
             <StackPanel Grid.Row="1" Grid.Column="0" Margin="16,16,0,0">
                 <Label FontSize="16" FontWeight="Bold" Foreground="LightSeaGreen">
-                    Lista de reproducción actual
+                    Lista de reproducción
                 </Label>
                 <StackPanel x:Name="queueSongs" Margin="0,16,0,0"></StackPanel>
             </StackPanel>
         </Grid>
         
         <!-- Right Content -->
-        <StackPanel x:Name="availableSongs" Grid.Row="0" Grid.Column="1" Margin="16,16,16,0"></StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="16,16,0,0">
+            <Grid HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBox x:Name="inputYouTubeSearchText" Grid.Row="0" Grid.Column="0" Width="200" />
+                <Button Grid.Row="0" Grid.Column="1" Click="ButtonSearchYouTube_Click" Cursor="Hand" Margin="16,0,0,0" Width="140">
+                    Añadir de YouTube
+                </Button>
+            </Grid>
+            <Grid x:Name="availableSongs" Margin="0,16,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </StackPanel>
     </Grid>
 </Window>

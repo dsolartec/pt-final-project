@@ -10,6 +10,13 @@ namespace PTFinalProject.Core.Songs
         YouTube,
     }
 
+    class SongYouTubeResponse
+    {
+        public string Artists { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
+    }
+
     class Song
     {
         private readonly string Id;

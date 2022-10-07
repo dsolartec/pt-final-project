@@ -4,7 +4,13 @@
              xmlns:local="clr-namespace:PTFinalProject"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <PathGeometry x:Key="Pause" Figures="M26.25 38V10H38v28ZM10 38V10h11.75v28Z" />
         <PathGeometry x:Key="Play" Figures="M16 37.85v-28l22 14Z" />
+        <PathGeometry x:Key="Pause" Figures="M26.25 38V10H38v28ZM10 38V10h11.75v28Z" />
+
+        <PathGeometry x:Key="AddToQueue" Figures="M6 31.5v-3h15v3Zm0-8.25v-3h23.5v3ZM6 15v-3h23.5v3Zm26.5 25v-8.5H24v-3h8.5V20h3v8.5H44v3h-8.5V40Z" />
+        <PathGeometry x:Key="RemoveFromQueue" Figures="m28.55 44-2.15-2.15 5.7-5.65-5.7-5.65 2.15-2.15 5.65 5.7 5.65-5.7L42 30.55l-5.7 5.65 5.7 5.65L39.85 44l-5.65-5.7ZM6 31.5v-3h15v3Zm0-8.25v-3h23.5v3ZM6 15v-3h23.5v3Z" />
+
+        <PathGeometry x:Key="AddToFavorites" Figures="m16.15 37.75 7.85-4.7 7.85 4.75-2.1-8.9 6.9-6-9.1-.8L24 13.7l-3.55 8.35-9.1.8 6.9 6ZM11.65 44l3.25-14.05L4 20.5l14.4-1.25L24 6l5.6 13.25L44 20.5l-10.9 9.45L36.35 44 24 36.55ZM24 26.25Z" />
+        <PathGeometry x:Key="RemoveFromFavorites" Figures="m11.65 44 3.25-14.05L4 20.5l14.4-1.25L24 6l5.6 13.25L44 20.5l-10.9 9.45L36.35 44 24 36.55Z" />
     </Application.Resources>
 </Application>

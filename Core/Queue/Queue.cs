@@ -36,6 +36,31 @@ namespace PTFinalProject.Core.Queue
             }
         }
 
+        public void RemoveSong(QueueSong song)
+        {
+            if (Initial == null) return;
+
+            QueueSong? currentSong = Initial;
+            while (currentSong != null)
+            {
+                if (currentSong.GetId() == song.GetId())
+                {
+                    QueueSong? previousSong = currentSong.GetPreviousSong();
+                    QueueSong? nextSong = currentSong.GetNextSong();
+
+                    if (currentSong == Initial) Initial = nextSong;
+                    if (currentSong == Current) Current = nextSong;
+
+                    if (previousSong != null) previousSong.SetNextSong(nextSong);
+                    if (nextSong != null) nextSong.SetPreviousSong(previousSong);
+
+                    break;
+                }
+
+                currentSong = currentSong.GetNextSong();
+            }
+        }
+
         public void Clear()
         {
             Initial = null;
