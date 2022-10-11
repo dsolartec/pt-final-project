@@ -49,7 +49,7 @@ namespace PTFinalProject.Core.Queue
                     QueueSong? nextSong = currentSong.GetNextSong();
 
                     if (currentSong == Initial) Initial = nextSong;
-                    if (currentSong == Current) Current = nextSong;
+                    if (currentSong == Current) Current = nextSong ?? Initial;
 
                     if (previousSong != null) previousSong.SetNextSong(nextSong);
                     if (nextSong != null) nextSong.SetPreviousSong(previousSong);
